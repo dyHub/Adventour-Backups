@@ -30,7 +30,7 @@
 
 
     <!-- Strings related to the tour overview view -->
-    <string name="text_content">filler text </string>
+    <string name="text_content"> Overview </string>
 
     <!-- Navigation drawer strings -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -38,6 +38,11 @@
 
     <string name="action_settings">Settings</string>
 
+    <string name="end_tour"><b>End Tour</b></string>
+    <string name="finish_tour"><b>Finish Tour</b></string>
+    <string name="create_checkpt"><b>Create a Checkpoint</b></string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_create_tour">Create Tour</string>
 </resources>
