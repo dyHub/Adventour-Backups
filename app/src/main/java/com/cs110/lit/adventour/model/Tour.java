@@ -9,9 +9,9 @@ public class Tour {
 	private int tour_id;
 	private String title;
 	private String summary;
-	private Boolean visibility;
 	private double starting_lat;
 	private double starting_lng;
+	private String photo;
 	private User user;
 
     private ArrayList<Checkpoint> listOfCheckpoints;
@@ -19,24 +19,24 @@ public class Tour {
 	public Tour() {}
 
 	public Tour(int tour_id, User user, String title, String summary,
-				Boolean visibility, double starting_lat, double starting_lng) {
+				 double starting_lat, double starting_lng, String photo) {
 		this.tour_id = tour_id;
 		this.user = user;
 		this.title = title;
 		this.summary = summary;
-		this.visibility = visibility;
 		this.starting_lat = starting_lat;
 		this.starting_lng = starting_lng;
+		this.photo = photo;
 	}
 
 	public Tour(int tour_id, User user, String title, String summary,
-		 Boolean visibility, ArrayList<Checkpoint> listOfCheckpoints) {
+		 ArrayList<Checkpoint> listOfCheckpoints, String photo) {
 		this.tour_id = tour_id;
 		this.user = user;
 		this.title = title;
 		this.summary = summary;
-		this.visibility = visibility;
         this.listOfCheckpoints = listOfCheckpoints;
+		this.photo = photo;
 	}
 
 	/* Public Setters */
@@ -56,16 +56,15 @@ public class Tour {
 	public void setSummary(String summary){
 	   this.summary = summary;
 	}
-	
-	public void setVisibility(Boolean visibility){
-	   this.visibility = visibility;
-	}
+
     public void setListOfCheckpoints(ArrayList<Checkpoint> listOfCheckpoints){
         this.listOfCheckpoints= listOfCheckpoints;
     }
-    
-	
-	/* Public Getters */
+
+	public void setPhoto(String photoUrl) {
+		this.photo = photoUrl;
+	}
+    /* Public Getters */
 	
 	public int getTour_id(){
 	   return tour_id;
@@ -91,9 +90,8 @@ public class Tour {
         return starting_lng;
     }
 
-    public Boolean getVisibility(){
-	   return visibility;
-	}
+	public String getPhoto() { return photo; }
+
     public ArrayList<Checkpoint> getListOfCheckpoints(){
         return listOfCheckpoints;
     }

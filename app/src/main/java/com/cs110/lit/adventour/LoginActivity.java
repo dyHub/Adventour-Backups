@@ -1,31 +1,24 @@
 package com.cs110.lit.adventour;
 
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.cs110.lit.adventour.model.*;
 
-import java.util.Random;
+import com.cs110.lit.adventour.model.User;
 
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 
 /**
  * A login screen that offers login via email/password.
@@ -281,19 +274,26 @@ public class LoginActivity extends AppCompatActivity implements
     public static String md5 (String s) {
         try {
             // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes());
-            byte messageDigest[] = digest.digest();
-
-            // Create Hex String
-            StringBuffer hexString = new StringBuffer();
-            for (int i=0; i<messageDigest.length; i++)
-                hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-            return hexString.toString();
+            MessageDigest m = java.security.MessageDigest.getInstance("MD5");
+            m.update(s.getBytes(), 0, s.length());
+            String hash = (new BigInteger(1, m.digest())).toString(16);
+            int len = hash.length();
+            for (int i = len; i < 32; i++) {
+                hash = "0" + hash;
+            }
+            return hash;
 
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return "";
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        // code here to show dialog
+        super.onBackPressed();
+        finish();// optional depending on your needs
     }
 }
