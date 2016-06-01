@@ -11,9 +11,9 @@
 
     <!-- Map View -->
     <item android:id="@+id/action_map_view"
-        android:icon="@drawable/map_icon"
+        android:icon="@drawable/ic_map_white"
         android:title="Map"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <!-- Refresh -->
     <item android:id="@+id/action_refresh"
